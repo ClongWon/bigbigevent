@@ -4,9 +4,10 @@ $(function() {
         $('#register').show().prev().hide();
     });
     $('.goto-login a').click(function() {
-            $('#register').hide().prev().show();
-        })
-        // 监听注册表单的提交事件
+        $('#register').hide().prev().show();
+    })
+
+    // 监听注册表单的提交事件
     $('#register form').on('submit', function(e) {
         // 阻止页面跳转
         e.preventDefault();
@@ -23,6 +24,17 @@ $(function() {
                 }
             }
         })
+    })
 
+    // 注册页面验证
+    var form = layui.form;
+    form.verify({
+        length: [/^\w{6,12}$/, '密码长度必须是6-12位'],
+        some: function(value) {
+            var password = $('#reg-password').val();
+            if (password !== value) {
+                return '行车不规范，亲人两行泪'
+            }
+        }
     })
 });
