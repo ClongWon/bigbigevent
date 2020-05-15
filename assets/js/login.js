@@ -37,4 +37,20 @@ $(function() {
             }
         }
     })
+
+    // 完成登录
+    $('#login form').on('submit', function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'post',
+            url: 'http://www.liulongbin.top:3007/api/login',
+            data: $(this).serialize(),
+            success: function(res) {
+                alert(res.message);
+                if (res.status === 0) {
+                    location.href = '/index.html'
+                }
+            }
+        })
+    })
 });
