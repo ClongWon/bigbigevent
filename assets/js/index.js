@@ -1,5 +1,15 @@
 $(function() {
+    // 获取用户信息并渲染到页面中
     getUserInfo();
+    // 点击退出后，删除token，跳转到登录页面
+    $('#logout').click(function() {
+        layer.confirm('臭弟弟确定要退出吗？', function(index) {
+            localStorage.removeItem('token');
+            location.href = '/index.html';
+            layer.close(index);
+        });
+    })
+
 });
 
 // 封装一个函数获取用户信息
