@@ -5,7 +5,7 @@ $(function() {
     $('#logout').click(function() {
         layer.confirm('臭弟弟确定要退出吗？', function(index) {
             localStorage.removeItem('token');
-            location.href = '/index.html';
+            location.href = '/login.html';
             layer.close(index);
         });
     })
